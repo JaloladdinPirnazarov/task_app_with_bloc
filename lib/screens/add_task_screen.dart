@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:task_app_with_bloc/blocs/bloc/tasks_bloc.dart';
 import 'package:task_app_with_bloc/models/task_model.dart';
+import 'package:task_app_with_bloc/services/guide_gen.dart';
+
+import '../blocs/tasks_bloc/tasks_bloc.dart';
 
 class AddTaskScreen extends StatefulWidget {
   const AddTaskScreen({super.key});
@@ -43,7 +45,10 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
 
             TextButton(
                 onPressed: (){
-                  var task = Task(title: titleController.text);
+                  var task = Task(
+                      id: GUIDGen.generate(),
+                      title: titleController.text
+                  );
                   context.read<TasksBloc>().add(AddTask(task: task));
                   titleController.text = "";
                   Navigator.pop(context);

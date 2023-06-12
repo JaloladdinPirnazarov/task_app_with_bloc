@@ -26,6 +26,14 @@ class UpdateTask extends TasksEvent {
   });
 }
 
+class RemoveTask extends TasksEvent {
+  final Task task;
+
+  const RemoveTask({
+    required this.task,
+  });
+}
+
 class DeleteTask extends TasksEvent {
   final Task task;
 
