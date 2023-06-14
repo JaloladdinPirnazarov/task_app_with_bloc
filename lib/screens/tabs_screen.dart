@@ -28,6 +28,7 @@ class _TabsScreenState extends State<TabsScreen> {
   void _addTask(BuildContext context) {
     showModalBottomSheet(
         context: context,
+        isScrollControlled: true,
         builder: (context) => SingleChildScrollView(
               child: Container(
                 padding: EdgeInsets.only(
@@ -45,12 +46,6 @@ class _TabsScreenState extends State<TabsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(_pageDetails[pageIndex]["title"]),
-        // actions: [
-        //   IconButton(
-        //       onPressed: () => _addTask(context),
-        //       icon: const Icon(Icons.add)
-        //   )
-        // ],
       ),
       drawer: MyDrawer(),
       body: _pageDetails[pageIndex]["pageName"],

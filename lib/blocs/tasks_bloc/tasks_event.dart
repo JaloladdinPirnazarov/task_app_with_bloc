@@ -41,3 +41,10 @@ class DeleteTask extends TasksEvent {
     required this.task,
   });
 }
+
+class MarkFavouriteOrUnFavouriteTask extends TasksEvent{
+  final Task task;
+  const MarkFavouriteOrUnFavouriteTask({required this.task});
+  @override
+  List<Object> get props => [task];
+}
